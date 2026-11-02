@@ -20,10 +20,14 @@ namespace SnakeWPF.Pages
     /// </summary>
     public partial class Game : Page
     {
-        // 1111123123
+        public int StepCard = 0;
         public Game()
         {
             InitializeComponent();
+        }
+        public void CreateUI()
+        {
+            
         }
     }
 }
