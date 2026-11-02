@@ -24,5 +24,7 @@ namespace SnakeWPF.Pages
         {
             InitializeComponent();
         }
+
+
     }
 }
