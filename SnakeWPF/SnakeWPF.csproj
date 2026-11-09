@@ -115,9 +115,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Image\back-3.jpg" />
+    <Resource Include="Image\back-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\back.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\pampam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\back-3.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\apple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

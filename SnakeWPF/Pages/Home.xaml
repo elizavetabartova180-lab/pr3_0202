@@ -10,11 +10,11 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource=""/>
+            <ImageBrush ImageSource="C:\Users\student-A502.PERMAVIAT\Desktop\pr3_0202-client-ui (2)\pr3_0202-client-ui\pr3_0202-client-ui\SnakeWPF\Image\back-2.jpg"/>
         </Grid.Background>
         <Grid Width="320" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.Background>
-                <ImageBrush ImageSource=""/>
+                <ImageBrush ImageSource="C:\Users\student-A502.PERMAVIAT\Desktop\pr3_0202-client-ui (2)\pr3_0202-client-ui\pr3_0202-client-ui\SnakeWPF\Image\pampam.jpg"/>
             </Grid.Background>
 
             <Label Content="Your IP address:" HorizontalAlignment="Left"
