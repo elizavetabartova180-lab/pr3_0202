@@ -1,4 +1,8 @@
-﻿using Common;
+﻿using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using Common;
+using Newtonsoft.Json;
 
 namespace PR3
 {
@@ -17,7 +21,31 @@ namespace PR3
 
         private static void Send()
         {
-            // Писать, а потом в свою ветку пробовать хотел жмать
+            foreach (ViewModelUserSettings User in remoteIPAdress)
+            {
+                UdpClient sender = new UdpClient();
+                IPEndPoint endPoint = new IPEndPoint(
+                    IPAddress.Parse(User.IPAddress),
+                    int.Parse(User.Port));
+                try
+                {
+                    byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(viewModelGames.Find(x => x.IdSnake == User.IdSnake)));
+
+                    sender.Send(bytes, bytes.Length, endPoint);
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"Отправил данные пользователю: {User.IPAddress}:{User.Port}");
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Возникло исключение: " + ex.ToString() + "\n " + ex.Message);
+                }
+                finally
+                {
+                    sender.Close();
+                }
+            }
         }
     }
 }
