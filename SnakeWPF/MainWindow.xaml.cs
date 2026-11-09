@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -39,6 +40,48 @@ namespace SnakeWPF
             InitializeComponent();
             mainWindow = this;
             OpenPage(Home);
+        }
+        public void StartReceiver()
+        {
+            tRec = new Thread(new ThreadStart(Receiver));
+            tRec.Start();
+        }
+        public void Receiver()
+        {
+            receivingUdpClient = new UdpClient(int.Parse(ViewModelUserSettings.Port));
+            IPEndPoint RemoteIpEndPoint = null;
+            try
+            {
+                while (true)
+                {
+                    byte[] receiveBytes = receivingUdpClient.Receive(
+                        ref RemoteIpEndPoint);
+                    string returnData = Encoding.UTF8.GetString(receiveBytes);
+                    if (ViewModelGames == null)
+                    {
+                        Dispatcher.Invoke(() =>
+                        {
+                            OpenPage(Game);
+                        });
+                    }
+                    ViewModelGames = JsonConvert.DeserializeObject<ViewModelGames>(returnData.ToString());
+                    if (ViewModelGames.SnakesPlayers.GameOver)
+                    {
+                        Dispatcher.Invoke(() =>
+                        {
+                            OpenPage(new Pages.EndGame());
+                        });
+                    }
+                    else
+                    {
+                        Game.CreateUI();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Возникло исключение: " + ex.ToString() + "\n " + ex.Message);
+            }
         }
         public void OpenPage(Page PageOpen)
         {
