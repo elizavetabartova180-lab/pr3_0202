@@ -7,10 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Game">
-
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\student-A502.PERMAVIAT\Desktop\pr3_0202-client-ui (2)\pr3_0202-client-ui\pr3_0202-client-ui\SnakeWPF\Image\back-3.jpeg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="C:\Users\ADMIN\Desktop\pr3_0202-client-ui (2)\pr3_0202-client-ui (2)\pr3_0202-client-ui\pr3_0202-client-ui\SnakeWPF\Image\back-3.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Canvas x:Name="canvas">
         </Canvas>
