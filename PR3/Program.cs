@@ -9,10 +9,11 @@ namespace PR3
     class Program
     {
         public static List<Leaders> Leaders = new List<Leaders>();
-        public static List<ViewModelUserSettings> remoteIPAdress = new List<ViewModelUserSettings>();
+        public static List<ViewModelUserSettings> remoteIPAddress = new List<ViewModelUserSettings>();
         public static List<ViewModelGames> viewModelGames = new List<ViewModelGames>();
         private static int localPort = 5001;
         public static int MaxSpeed = 15;
+        private static int nextIdSnake = 0;
 
         static void Main(string[] args)
         {
@@ -33,7 +34,7 @@ namespace PR3
 
         private static void Send()
         {
-            foreach (ViewModelUserSettings User in remoteIPAdress)
+            foreach (ViewModelUserSettings User in remoteIPAddress.ToList())
             {
                 UdpClient sender = new UdpClient();
                 IPEndPoint endPoint = new IPEndPoint(
@@ -141,7 +142,8 @@ namespace PR3
             };
             viewModelGamesPlayer.Points = new Snakes.Point(new Random().Next(10, 783), new Random().Next(10, 410));
             viewModelGames.Add(viewModelGamesPlayer);
-            return viewModelGames.FindIndex(x => x == viewModelGamesPlayer);
+            viewModelGamesPlayer.IdSnake = nextIdSnake++;
+            return viewModelGamesPlayer.IdSnake;
         }
 
         public static void Timer()
@@ -163,7 +165,7 @@ namespace PR3
                     viewModelGames.RemoveAll(x => x.SnakesPlayers.GameOver);
                 }
 
-                foreach (ViewModelUserSettings User in remoteIPAddress)
+                foreach (ViewModelUserSettings User in remoteIPAddress.ToList())
                 {
                     Snakes Snake = viewModelGames.Find(x => x.IdSnake == User.IdSnake).SnakesPlayers;
                     for (int i = Snake.Points.Count - 1; i >= 0; i--)
@@ -258,6 +260,28 @@ namespace PR3
             }
         }
 
+        public static void SaveLeaders()
+        {
+            string json = JsonConvert.SerializeObject(Leaders);
+            StreamWriter SW = new StreamWriter("./leaders.txt");
+            SW.WriteLine(json);
+            SW.Close();
+        }
 
+        public static void LoadLeaders()
+        {
+            if (File.Exists("./leaders.txt"))
+            {
+                StreamReader SR = new StreamReader("./leaders.txt");
+                string json = SR.ReadLine();
+                SR.Close();
+                if (!string.IsNullOrEmpty(json))
+                    Leaders = JsonConvert.DeserializeObject<List<Leaders>>(json);
+                else
+                    Leaders = new List<Leaders>();
+            }
+            else
+                Leaders = new List<Leaders>();
+        }
     }
 }
