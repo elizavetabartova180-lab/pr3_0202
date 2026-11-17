@@ -42,7 +42,13 @@ namespace PR3
                     int.Parse(User.Port));
                 try
                 {
-                    byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(viewModelGames.Find(x => x.IdSnake == User.IdSnake)));
+                    ViewModelGames myGame = viewModelGames.Find(x => x.IdSnake == User.IdSnake);
+                    if (myGame != null)
+                        myGame.OtherSnakes = viewModelGames
+                            .Where(x => x.IdSnake != User.IdSnake)
+                            .Select(x => x.SnakesPlayers)
+                            .ToList();
+                    byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(myGame));
 
                     sender.Send(bytes, bytes.Length, endPoint);
 
