@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +54,15 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
+  
+  <!-- ДОБАВЛЕНА ССЫЛКА НА ПРОЕКТ COMMON -->
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{5b15077c-e3d9-4bff-8c9b-75b48d1afbcc}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +103,8 @@
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,17 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\back-2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\back.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\pampam.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\back-3.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\apple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

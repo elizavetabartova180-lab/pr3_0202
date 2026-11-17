@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+=======
+using System.Linq;
+using System.Text;
+>>>>>>> 86df6f6b28efb7f62317a386911fd16405bd0813
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,12 +18,18 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+<<<<<<< HEAD
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using SnakeWPF.Pages;
+=======
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+>>>>>>> 86df6f6b28efb7f62317a386911fd16405bd0813
 
 namespace SnakeWPF
 {
@@ -27,6 +38,7 @@ namespace SnakeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+<<<<<<< HEAD
         public static MainWindow mainWindow;
         public ViewModelUserSettings ViewModelUserSettings = new ViewModelUserSettings();
         public ViewModelGames ViewModelGames = null;
@@ -140,6 +152,11 @@ namespace SnakeWPF
         {
             receivingUdpClient.Close();
             tRec.Abort();
+=======
+        public MainWindow()
+        {
+            InitializeComponent();
+>>>>>>> 86df6f6b28efb7f62317a386911fd16405bd0813
         }
     }
 }
