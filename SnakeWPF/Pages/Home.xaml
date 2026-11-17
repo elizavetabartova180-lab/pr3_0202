@@ -29,12 +29,12 @@
 
             <TextBox x:Name="ip" HorizontalAlignment="Left" Height="25"
                      Margin="42,62,0,0" TextWrapping="Wrap"
-                     Text="191.333.0.333" VerticalAlignment="Top"
+                     Text="127.0.0.1" VerticalAlignment="Top"
                      Width="155" VerticalContentAlignment="Center"
                      HorizontalContentAlignment="Center" FontFamily="Forte"/>
             <TextBox x:Name="port" HorizontalAlignment="Left" Height="25"
                      Margin="202,62,0,0" TextWrapping="Wrap"
-                     Text="5000" VerticalAlignment="Top"
+                     Text="5001" VerticalAlignment="Top"
                      Width="74" VerticalContentAlignment="Center"
                      HorizontalContentAlignment="Center" FontFamily="Forte"/>
             <TextBox x:Name="name" HorizontalAlignment="Left" Height="25"

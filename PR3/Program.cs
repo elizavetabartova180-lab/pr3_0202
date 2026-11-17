@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-=======
+
 ﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -15,7 +12,7 @@ namespace PR3
         public static List<Leaders> Leaders = new List<Leaders>();
         public static List<ViewModelUserSettings> remoteIPAddress = new List<ViewModelUserSettings>();
         public static List<ViewModelGames> viewModelGames = new List<ViewModelGames>();
-        private static int localPort = 5001;
+        private static int localPort = 5000;
         public static int MaxSpeed = 15;
         private static int nextIdSnake = 0;
 
@@ -295,4 +292,3 @@ namespace PR3
         }
     }
 }
->>>>>>> 86df6f6b28efb7f62317a386911fd16405bd0813
