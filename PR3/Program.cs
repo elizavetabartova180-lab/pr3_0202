@@ -47,5 +47,10 @@ namespace PR3
                 }
             }
         }
+
+        public static void Receiver()
+        {
+
+        }
     }
 }
